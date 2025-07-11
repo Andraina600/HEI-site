@@ -5,6 +5,8 @@ import About from './components/About/About.jsx'
 import Debouche from './components/Debouche/Debouche.jsx'
 import Domaine from './components/Domaine/Domaine.jsx'
 import Admission from './components/Admission/Admission.jsx'
+import Programme from './components/Programme/Programme.jsx'
+import Technologie from './components/Technologie/Technologie.jsx'
 
 function App() {
 
@@ -16,6 +18,8 @@ function App() {
       <Debouche />
       <Domaine />
       <Admission />
+      <Programme />
+      <Technologie />
     </>
   )
 }
