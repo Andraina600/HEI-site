@@ -30,7 +30,7 @@ export default function HEI_principale() {
             button3: "Programme pédagogique",
         }
     ]
-    
+    const [loading, setLoading] = useState(true);
     const [index, setIndex] = useState(0);
     const [direction, setDirection] = useState("left"); 
 
@@ -38,55 +38,72 @@ export default function HEI_principale() {
         setDirection("left");
         setIndex((prev) => (prev + 1) % slides.length);
     };
-      
+    //------------------------------------
     const prevSlide = () => {
         setDirection("right");
         setIndex((prev) => (prev - 1 + slides.length) % slides.length);
     }
+    //------------------------------------
     useEffect(() => {
         const timer = setTimeout(() => {
           nextSlide();
         }, 5000);
         return () => clearTimeout(timer);
       }, [index]);
-    const getTransformStyle = () => {
+    //------------------------------------  
+    const Direction = () => {
         if (direction === "left") return `translateX(-${index * 100}%)`;
         if (direction === "right") return `translateX(-${index * 100}%)`;
     };
-    
+    //-------------------------------------
+    useEffect(() => {
+        const timer = setTimeout(() => {
+          setLoading(false);
+        }, 2000);
+        return () => clearTimeout(timer);
+      }, []);
+    //-------------------------------------
+      if (loading) {
+        return (
+          <div className="flex justify-center items-center h-[400px] bg-gray-100">
+            <div className="flex flex-col items-center gap-3">
+              <div className="w-12 h-12 border-4 border-gray-300 border-t-blue-500 rounded-full animate-spin" />
+            
+            </div>
+          </div>
+        );
+      }
+    //--------------------------------------------------
     return (
         <div className="relative w-full max-w-full h-150 overflow-hidden shadow-lg">
             <div className="flex transition-transform duration-700 ease-in-out h-full bg-center"
-            style={{ width: `${slides.length * 40}%`,transform: getTransformStyle(),}}>
+            style={{ width: `${slides.length * 40}%`,transform: Direction(),}}>
                 {slides.map((slide , i) => (
                     <div key={i} className="w-full flex-shrink-0 h-full bg-cover bg-center relative"
                     style={{ backgroundImage: `url(${slide.image})` }}>
                         <div className="absolute text-white flex flex-col bg-cover bg-center w-full h-full pr-55 bg-black/60 gap-20 justify-center items-center">
                             <h2 className="text-7xl font-bold pt-4">{slide.title}</h2>
                             <p className="mb-4 text-2xl font-semibold text-center w-250">{slide.description}</p>
-                   <div className="flex flex-wrap gap-30 justify-center mt-4">
-                       {slide.button1 && (
-                           <button className="bg-white text-blue-800 text-xl font-semibold p-4 rounded cursor-pointer">
-                           {slide.button1}
-                           </button>
-                       )}
-                       {slide.button2 && (
-                           <button className="bg-yellow-500 text-white text-xl font-semibold p-4 rounded cursor-pointer">
-                           {slide.button2}
-                           </button>
-                       )}
-                       {slide.button3 && (
-                           <button className="bg-blue-800  text-white text-xl font-semibold p-4 rounded cursor-pointer">
-                           {slide.button3}
-                           </button>
-                       )}
-                   </div>
-               </div>
-                   </div>
-                   
-                ))}
-                
-           
+                            <div className="flex flex-wrap gap-30 justify-center mt-4">
+                                {slide.button1 && (
+                                    <button className="bg-white text-blue-800 text-xl font-semibold p-4 rounded cursor-pointer">
+                                    {slide.button1}
+                                    </button>
+                                )}
+                                {slide.button2 && (
+                                    <button className="bg-yellow-500 text-white text-xl font-semibold p-4 rounded cursor-pointer">
+                                    {slide.button2}
+                                    </button>
+                                )}
+                                {slide.button3 && (
+                                    <button className="bg-blue-800  text-white text-xl font-semibold p-4 rounded cursor-pointer">
+                                    {slide.button3}
+                                    </button>
+                                )}
+                            </div>
+                        </div>
+                    </div>  
+                ))}           
             </div>
             <button
                 onClick={prevSlide}
