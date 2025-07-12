@@ -14,6 +14,7 @@ function App() {
       <Navbar/>
       <HEI/>
       <About />
+      <Enseigent/>
       <Debouche />
       <Domaine />
       <Admission />
