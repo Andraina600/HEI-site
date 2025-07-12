@@ -101,6 +101,7 @@ export default function HEI_principale() {
                                     </button>
                                 )}
                             </div>
+                            <p className="text-2xl">Habilitation MESupRES, suivant l'arrêté n°313309/2023</p>
                         </div>
                     </div>  
                 ))}           

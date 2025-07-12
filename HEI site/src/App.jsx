@@ -8,6 +8,7 @@ import Admission from './components/Admission/Admission.jsx'
 import Programme from './components/Programme/Programme.jsx'
 import Technologie from './components/Technologie/Technologie.jsx'
 import Enseigent from './components/Team/Team.jsx'
+import Footer from './components/PartenaireETFoot/Partenaire_Footer.jsx'
 
 function App() {
 
@@ -22,6 +23,7 @@ function App() {
       <Admission />
       <Programme />
       <Technologie />
+      <Footer/>
     </>
   )
 }

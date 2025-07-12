@@ -95,7 +95,7 @@ const Enseignent = () => {
 
 
   return (
-    <div className="relative w-full px-20 py-10 gap-20 bg-blue-300">
+    <div className="relative w-full px-20 py-10 bg-blue-300">
         <div className="mt-4 flex flex-col gap-5 justify-center items-center">
             <h1 className="text-5xl text-white text-center">L'équipe Pédagogique</h1>
             <p className="text-white w-250 text-xl text-center">
@@ -105,8 +105,8 @@ const Enseignent = () => {
                 elle a été soigneusement sélectionnée.
             </p>
         </div>
-        <div className="w-350 overflow-hidden pr-15">
-              <div ref={carouselRef}className="flex"
+        <div className="relative w-250 overflow-hidden mx-30">
+              <div ref={carouselRef} className="flex"
               style={{
                 transition: "transform 700ms ease-in-out",
                 transform: `translateX(-${index * (100 / cards.length)}%)`,
@@ -116,7 +116,7 @@ const Enseignent = () => {
               {cards.map((card, i) => (
                 <div
                   key={i}
-                  className="px-2 py-8 flex-shrink-0"
+                  className="py-8 flex-shrink-0"
                   style={{ width: `${100 / cards.length}%` }}>
                   <div className="bg-white rounded-2xl shadow overflow-hidden gap-3 w-70 h-80 flex flex-col items-center">
                     <img
@@ -137,13 +137,13 @@ const Enseignent = () => {
 
       <button
         onClick={goPrev}
-        className="absolute top-1/2 left-3 font-semibold text-6xl text-white w-15 px-3 pb-2 rounded-full cursor-pointer hover:opacity-70"
+        className="absolute top-100 left-40 font-semibold text-6xl text-white cursor-pointer hover:opacity-70"
       >
         ‹
       </button>
       <button
         onClick={goNext}
-        className="absolute top-1/2 right-3 font-semibold text-6xl text-white w-15 px-3 pb-2 rounded-full cursor-pointer hover:opacity-70"
+        className="absolute top-100 right-40 font-semibold text-6xl text-white cursor-pointer hover:opacity-70"
       >
         ›
       </button>
