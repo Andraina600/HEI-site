@@ -40,12 +40,12 @@ const Enseignent = () => {
       setIndex((prev) => prev + 1);
     }, 4000);
   };
-
+//-----------------------------------------
   useEffect(() => {
     startAutoScroll();
     return () => clearInterval(intervalRef.current);
   }, []);
-
+//------------------------------------------
   useEffect(() => {
     if (index === totalCards - card_visible) {
       setTimeout(() => {
@@ -77,17 +77,17 @@ const Enseignent = () => {
       }, 700);
     }
   }, [index]);
-
+//------------------------------------------------
   const goPrev = () => {
     setIndex((prev) => prev - 1);
     startAutoScroll();
   };
-
+//---------------------------------------------
   const goNext = () => {
     setIndex((prev) => prev + 1);
     startAutoScroll();
   };
-
+//----------------------------------------
   const totalVisibleSlides = originalCards.length;
   const getCurrentSlide = () => {
     return (index - card_visible + totalVisibleSlides) % totalVisibleSlides;
@@ -105,7 +105,7 @@ const Enseignent = () => {
                 elle a été soigneusement sélectionnée.
             </p>
         </div>
-        <div className="relative w-250 overflow-hidden mx-30">
+        <div className="relative w-240 overflow-hidden mx-30">
               <div ref={carouselRef} className="flex"
               style={{
                 transition: "transform 700ms ease-in-out",
@@ -133,11 +133,10 @@ const Enseignent = () => {
               ))}
             </div>
         </div>
-      
 
       <button
         onClick={goPrev}
-        className="absolute top-100 left-40 font-semibold text-6xl text-white cursor-pointer hover:opacity-70"
+        className="absolute top-100 left-35 font-semibold text-6xl text-white cursor-pointer hover:opacity-70"
       >
         ‹
       </button>
@@ -147,6 +146,7 @@ const Enseignent = () => {
       >
         ›
       </button>
+
       <div className="flex justify-center mt-4 gap-2 mb-3">
         {originalCards.map((_, i) => (
           <button
@@ -161,7 +161,6 @@ const Enseignent = () => {
           />
         ))}
       </div>
-
     </div>
   );
 };

@@ -62,8 +62,9 @@ export default function HEI_principale() {
         }, 2000);
         return () => clearTimeout(timer);
       }, []);
-    //-------------------------------------
-      if (loading) {
+    //-------------------------------------*
+
+    if (loading) {
         return (
           <div className="flex justify-center items-center h-[400px] bg-gray-100">
             <div className="flex flex-col items-center gap-3">
@@ -72,7 +73,7 @@ export default function HEI_principale() {
             </div>
           </div>
         );
-      }
+    }
     //--------------------------------------------------
     return (
         <div className="relative w-full max-w-full h-150 overflow-hidden shadow-lg">
