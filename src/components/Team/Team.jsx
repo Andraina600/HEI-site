@@ -1,12 +1,12 @@
 import { useEffect, useRef, useState } from "react";
-import photo1 from '../../assets/images/photo (7).jpeg'
-import photo2 from '../../assets/images/photo (3).jpeg'
-import photo3 from '../../assets/images/photo (4).jpeg'
-import photo4 from '../../assets/images/photo (6).jpeg'
-import photo5 from '../../assets/images/photo (5).jpeg'
-import photo6 from '../../assets/images/photo (1).jpeg'
-import photo7 from '../../assets/images/photo (8).jpeg'
-import photo8 from '../../assets/images/photo (2).jpeg'
+import photo1 from '../../assets/images/photo (7).jpeg';
+import photo2 from '../../assets/images/photo (3).jpeg';
+import photo3 from '../../assets/images/photo (4).jpeg';
+import photo4 from '../../assets/images/photo (6).jpeg';
+import photo5 from '../../assets/images/photo (5).jpeg';
+import photo6 from '../../assets/images/photo (1).jpeg';
+import photo7 from '../../assets/images/photo (8).jpeg';
+import photo8 from '../../assets/images/photo (2).jpeg';
 
 const originalCards = [
   { profile: photo1, title: "Dr Lou Maurica", description: "Docteur-ingénieur en informatique | Fondateur et Directeur pédagogique de HEI" },
@@ -20,12 +20,14 @@ const originalCards = [
 ];
 
 const card_visible = 3;
+const cardWidth = 280; // nouvelle constante pour largeur fixe
 
 const Enseignent = () => {
   const carouselRef = useRef(null);
   const intervalRef = useRef(null);
   const [index, setIndex] = useState(card_visible);
 
+  // simplification de la logique des cartes
   const cards = [
     ...originalCards.slice(-card_visible),
     ...originalCards,
@@ -40,114 +42,112 @@ const Enseignent = () => {
       setIndex((prev) => prev + 1);
     }, 4000);
   };
-//-----------------------------------------
+
   useEffect(() => {
     startAutoScroll();
     return () => clearInterval(intervalRef.current);
   }, []);
-//------------------------------------------
+
   useEffect(() => {
+    if (!carouselRef.current) return;
+
     if (index === totalCards - card_visible) {
       setTimeout(() => {
-        if (!carouselRef.current) return;
         carouselRef.current.style.transition = "none";
         setIndex(card_visible);
-        requestAnimationFrame(() => {
-          requestAnimationFrame(() => {
-            if (carouselRef.current) {
-              carouselRef.current.style.transition = "transform 700ms ease-in-out";
-            }
-          });
-        });
+        setTimeout(() => {
+          carouselRef.current.style.transition = "transform 700ms ease-in-out";
+        }, 50);
       }, 700);
     }
 
     if (index === 0) {
       setTimeout(() => {
-        if (!carouselRef.current) return;
         carouselRef.current.style.transition = "none";
         setIndex(originalCards.length);
-        requestAnimationFrame(() => {
-          requestAnimationFrame(() => {
-            if (carouselRef.current) {
-              carouselRef.current.style.transition = "transform 700ms ease-in-out";
-            }
-          });
-        });
+        setTimeout(() => {
+          carouselRef.current.style.transition = "transform 700ms ease-in-out";
+        }, 50);
       }, 700);
     }
-  }, [index]);
-//------------------------------------------------
+  }, [index, totalCards]);
+
   const goPrev = () => {
     setIndex((prev) => prev - 1);
     startAutoScroll();
   };
-//---------------------------------------------
+
   const goNext = () => {
     setIndex((prev) => prev + 1);
     startAutoScroll();
   };
-//----------------------------------------
-  const totalVisibleSlides = originalCards.length;
-  const getCurrentSlide = () => {
-    return (index - card_visible + totalVisibleSlides) % totalVisibleSlides;
-  };
 
+  const getCurrentSlide = () => {
+    return (index - card_visible + originalCards.length) % originalCards.length;
+  };
 
   return (
     <div className="relative w-full py-10 bg-blue-300">
-        <div className="mt-4 flex flex-col gap-5 justify-center items-center">
-            <h1 className="text-5xl font-bold font-garamond text-white text-center">L'équipe Pédagogique</h1>
-            <p className="text-white w-250 text-xl text-center">
-                Notre équipe pédagogique se compose d’experts nationaux et internationaux de l’informatique, de la cybersécurité, 
-                de l’intelligence artificielle, dont un ingénieur chez Google. Ils sont passionnés par l’informatique et sont engagés vers 
-                l’excellence. Nous sommes conscients que cette équipe est la pierre angulaire de l’employabilité de nos étudiants, 
-                elle a été soigneusement sélectionnée.
-            </p>
-        </div>
-        <div className="relative w-240 overflow-hidden mx-auto">
-              <div ref={carouselRef} className="flex"
-              style={{
-                transition: "transform 700ms ease-in-out",
-                transform: `translateX(-${index * (100 / cards.length)}%)`,
-                width: `${((cards.length * 100) / card_visible.toFixed(5))}%`,
-                boxe_sizing: "border-box",
-                margin_rigth: "-2px",
-              }}>
-              
-              {cards.map((card, i) => (
-                <div
-                  key={i}
-                  className="py-8 overflow-hidden flex-shrink-0"
-                  style={{ width: `${(100 / cards.length).toFixed(5)}%` }}>
-                  <div className="bg-white rounded-2xl shadow overflow-hidden gap-3 w-70 h-80 flex flex-col items-center">
-                    <img
-                      src={card.profile}
-                      alt={card.title}
-                      className="w-40 h-40 object-cover rounded-full mt-4"
-                    />
-                    <div className="p-4 gap-3 text-center">
-                      <h3 className="text-lg text-blue-950 font-bold">{card.title}</h3>
-                      <p className="text-sm text-blue-950">{card.description}</p>
-                    </div>
+      <div className="mt-4 flex flex-col gap-5 justify-center items-center">
+        <h1 className="text-5xl font-bold font-garamond text-white text-center">L'équipe Pédagogique</h1>
+        <p className="text-white w-250 text-xl text-center">
+          Notre équipe pédagogique se compose d’experts nationaux et internationaux de l’informatique, de la cybersécurité, de l’intelligence artificielle, dont un ingénieur chez Google. Ils sont passionnés par l’informatique et sont engagés vers l’excellence. Nous sommes conscients que cette équipe est la pierre angulaire de l’employabilité de nos étudiants, elle a été soigneusement sélectionnée.
+        </p>
+      </div>
+
+      {/*div principal : fleche gauche + les cards + fleche droite*/}
+      <div className="flex justify-center items-center gap-4 mt-10">
+        <button
+          onClick={goPrev}
+          className="text-4xl text-white font-semibold hover:opacity-70 px-4"
+        >
+          ‹
+        </button>
+
+        {/* div pour les cards */}
+        <div 
+          className="relative overflow-hidden" 
+          style={{ width: `${cardWidth * card_visible}px` }}
+        >
+          <div
+            ref={carouselRef}
+            className="flex"
+            style={{
+              transition: "transform 700ms ease-in-out",
+              transform: `translateX(-${index * cardWidth}px)`, //translation en pixels au lieu de pourcentage
+              width: `${totalCards * cardWidth}px`, //largeur totale en pixels
+            }}
+          >
+            {cards.map((card, i) => (
+              // Carte avec largeur fixe et padding
+              <div 
+                key={i} 
+                style={{ width: `${cardWidth}px` }}
+                className="flex-shrink-0 py-8 px-2"
+              >
+                <div className="bg-white rounded-2xl shadow w-full h-80 flex flex-col items-center">
+                  <img
+                    src={card.profile}
+                    alt={card.title}
+                    className="w-40 h-40 object-cover rounded-full mt-4"
+                  />
+                  <div className="p-4 text-center">
+                    <h3 className="text-lg text-blue-950 font-bold">{card.title}</h3>
+                    <p className="text-sm text-blue-950">{card.description}</p>
                   </div>
                 </div>
-              ))}
-            </div>
+              </div>
+            ))}
+          </div>
         </div>
 
-      <button
-        onClick={goPrev}
-        className="absolute top-100 left-35 font-semibold text-6xl text-white cursor-pointer hover:opacity-70"
-      >
-        ‹
-      </button>
-      <button
-        onClick={goNext}
-        className="absolute top-100 right-40 font-semibold text-6xl text-white cursor-pointer hover:opacity-70"
-      >
-        ›
-      </button>
+        <button
+          onClick={goNext}
+          className="text-4xl text-white font-semibold hover:opacity-70 px-4"
+        >
+          ›
+        </button>
+      </div>
 
       <div className="flex justify-center mt-4 gap-2 mb-3">
         {originalCards.map((_, i) => (
