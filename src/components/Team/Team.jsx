@@ -112,7 +112,7 @@ const Enseignent = () => {
                 transform: `translateX(-${index * (100 / cards.length)}%)`,
                 width: `${((cards.length * 100) / card_visible.toFixed(5))}%`,
                 boxe_sizing: "border-box",
-                margin_rigth: "-1px",
+                margin_rigth: "-2px",
               }}>
               
               {cards.map((card, i) => (
