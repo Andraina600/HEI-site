@@ -95,7 +95,7 @@ const Enseignent = () => {
 
 
   return (
-    <div className="relative w-full px-20 py-10 bg-blue-300">
+    <div className="relative w-full py-10 bg-blue-300">
         <div className="mt-4 flex flex-col gap-5 justify-center items-center">
             <h1 className="text-5xl font-bold font-garamond text-white text-center">L'équipe Pédagogique</h1>
             <p className="text-white w-250 text-xl text-center">
@@ -105,19 +105,21 @@ const Enseignent = () => {
                 elle a été soigneusement sélectionnée.
             </p>
         </div>
-        <div className="relative w-240 overflow-hidden mx-30">
+        <div className="relative w-240 overflow-hidden mx-auto">
               <div ref={carouselRef} className="flex"
               style={{
                 transition: "transform 700ms ease-in-out",
                 transform: `translateX(-${index * (100 / cards.length)}%)`,
-                width: `${(cards.length * 100) / card_visible}%`,
+                width: `${((cards.length * 100) / card_visible.toFixed(5))}%`,
+                boxe_sizing: "border-box",
+                margin_rigth: "-1px",
               }}>
               
               {cards.map((card, i) => (
                 <div
                   key={i}
-                  className="py-8 flex-shrink-0"
-                  style={{ width: `${100 / cards.length}%` }}>
+                  className="py-8 overflow-hidden flex-shrink-0"
+                  style={{ width: `${(100 / cards.length).toFixed(5)}%` }}>
                   <div className="bg-white rounded-2xl shadow overflow-hidden gap-3 w-70 h-80 flex flex-col items-center">
                     <img
                       src={card.profile}
