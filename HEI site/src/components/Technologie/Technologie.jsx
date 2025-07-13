@@ -29,8 +29,8 @@ export default function technologie () {
         <>
             <div className='bg-gray-100 p-15 gap-15 flex flex-col '>
                 <div className="flex flex-col justify-center items-center px-15 text-center">
-                    <p className="text-[3rem] text-blue-950 font-bold mb-5">Les technos et langages utilisées</p>
-                    <p className="text-[1.1rem]">Nos étudiants sont formés à l’utilisation et à la maîtrise des langages de programmation Java et JavaScript. Ces deux langages occupent une place de choix dans le domaine du développement logiciel et du web, offrant une polyvalence et une robustesse appréciées par les développeurs à travers le monde.</p>
+                    <p className="text-[3rem] font-garamond text-blue-950 font-bold mb-5">Les technos et langages utilisées</p>
+                    <p className="text-[1.1rem] text-blue-950 ">Nos étudiants sont formés à l’utilisation et à la maîtrise des langages de programmation Java et JavaScript. Ces deux langages occupent une place de choix dans le domaine du développement logiciel et du web, offrant une polyvalence et une robustesse appréciées par les développeurs à travers le monde.</p>
                 </div>
 
                 <div className='flex justify-center items-center gap-20'>

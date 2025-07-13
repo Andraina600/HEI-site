@@ -97,7 +97,7 @@ const Enseignent = () => {
   return (
     <div className="relative w-full px-20 py-10 bg-blue-300">
         <div className="mt-4 flex flex-col gap-5 justify-center items-center">
-            <h1 className="text-5xl text-white text-center">L'équipe Pédagogique</h1>
+            <h1 className="text-5xl font-bold font-garamond text-white text-center">L'équipe Pédagogique</h1>
             <p className="text-white w-250 text-xl text-center">
                 Notre équipe pédagogique se compose d’experts nationaux et internationaux de l’informatique, de la cybersécurité, 
                 de l’intelligence artificielle, dont un ingénieur chez Google. Ils sont passionnés par l’informatique et sont engagés vers 
@@ -125,8 +125,8 @@ const Enseignent = () => {
                       className="w-40 h-40 object-cover rounded-full mt-4"
                     />
                     <div className="p-4 gap-3 text-center">
-                      <h3 className="text-lg text-blue-700 font-bold">{card.title}</h3>
-                      <p className="text-sm text-blue-700">{card.description}</p>
+                      <h3 className="text-lg text-blue-950 font-bold">{card.title}</h3>
+                      <p className="text-sm text-blue-950">{card.description}</p>
                     </div>
                   </div>
                 </div>

@@ -1,1 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond&display=swap');
+
 @import "tailwindcss";
+
+.font-garamond {
+  font-family: 'EB Garamond', serif;
+}

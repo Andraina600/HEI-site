@@ -48,8 +48,8 @@ export default function partenaireFooter () {
             <div>
                 <div className='p-15 flex flex-col gap-15'>
                     <div className="flex flex-col justify-center items-center px-15 text-center">
-                        <p className="text-[3rem] text-blue-950 font-bold mb-5">Nos partenaires</p>
-                        <p className="text-[1.1rem]">L’employabilité de nos étudiants se base sur la pertinence  de notre programme pédagogique et de la composition de notre corps enseignant mais aussi du soutien et la collaboration des entreprises partenaires</p>
+                        <p className="text-[3rem] text-blue-950 font-garamond font-bold mb-5">Nos partenaires</p>
+                        <p className="text-[1.1rem] text-blue-950">L’employabilité de nos étudiants se base sur la pertinence  de notre programme pédagogique et de la composition de notre corps enseignant mais aussi du soutien et la collaboration des entreprises partenaires</p>
                     </div>
 
                     <div className='flex items-center gap-20 px-10'>

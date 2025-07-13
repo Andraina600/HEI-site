@@ -42,8 +42,8 @@ export default function programme () {
                 <div className='flex flex-row justify-center gap-20'>
                     <div className='w-110'><img src={ImageProgramme} alt="" /></div>
                     <div className='flex flex-col w-1/2 jus justify-center'>
-                        <p className='font-bold text-[2.6rem] mb-10'>Le programme pédagogique</p>
-                        <p className='text-[1.1rem] mb-10'>Suivant le système LMD, jusqu’au Master, notre formation repose sur un programme pédagogique conçu en adéquation avec les attentes du marché. La formation est sanctionnée par un diplôme de Licence et de Master en Informatique reconnu par le MESupRes de Madagascar.</p>
+                        <p className='font-bold text-[2.6rem] font-garamond text-blue-950 mb-10'>Le programme pédagogique</p>
+                        <p className='text-[1.1rem] text-blue-950 mb-10'>Suivant le système LMD, jusqu’au Master, notre formation repose sur un programme pédagogique conçu en adéquation avec les attentes du marché. La formation est sanctionnée par un diplôme de Licence et de Master en Informatique reconnu par le MESupRes de Madagascar.</p>
                         <button className='font-semibold w-50 px-4 py-2 rounded border-2 text-blue-950 text-[1.2rem] hover:bg-blue-950 hover:text-white duration-200 cursor-pointer'>Notre Programme</button>
                     </div>
                 </div>

@@ -29,8 +29,8 @@ export default function about () {
         <>
             <div className="flex flex-row p-15 justify-center items-center gap-10">
                 <div className="w-130"><img src={ImageAbout} alt="" /></div>
-                <div className="flex flex-col gap-8 p-10 w-1/2">
-                    <h1 className="text-[2.7rem] font-semibold">A propos de nous</h1>
+                <div className="flex flex-col text-blue-950 gap-8 p-10 w-1/2">
+                    <h1 className="text-[2.7rem] font-semibold font-garamond">A propos de nous</h1>
                         <div className="flex flex-col gap-10">
                             {aboutData.map(e => (
                                 <div className="flex flex-col gap-3">

@@ -23,9 +23,9 @@ const domaineData = [
 export default function domaine () {
     return (
         <>
-            <div className='flex flex-col p-15 gap-10 bg-gray-100'>
+            <div className='flex flex-col p-15 text-blue-950 gap-10 bg-gray-100'>
                 <div className='flex flex-col justify-center items-center'>
-                    <p className='text-[3rem] font-semibold mb-4'>Domaines</p>
+                    <p className='text-[3rem] font-semibold font-garamond mb-4'>Domaines</p>
                     <p className='text-[1.1rem]'>Au cours de vos trois ans de formation, naviguez entre les domaines les plus porteurs du numérique du présent et de l’avenir :</p>
                 </div>
                 <div className='flex flex-row justify-center gap-8'>
