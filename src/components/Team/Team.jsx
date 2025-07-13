@@ -20,14 +20,13 @@ const originalCards = [
 ];
 
 const card_visible = 3;
-const cardWidth = 280; // nouvelle constante pour largeur fixe
+const cardWidth = 280; 
 
 const Enseignent = () => {
   const carouselRef = useRef(null);
   const intervalRef = useRef(null);
   const [index, setIndex] = useState(card_visible);
 
-  // simplification de la logique des cartes
   const cards = [
     ...originalCards.slice(-card_visible),
     ...originalCards,
@@ -95,7 +94,6 @@ const Enseignent = () => {
         </p>
       </div>
 
-      {/*div principal : fleche gauche + les cards + fleche droite*/}
       <div className="flex justify-center items-center gap-4 mt-10">
         <button
           onClick={goPrev}
@@ -104,7 +102,6 @@ const Enseignent = () => {
           ‹
         </button>
 
-        {/* div pour les cards */}
         <div 
           className="relative overflow-hidden" 
           style={{ width: `${cardWidth * card_visible}px` }}
@@ -114,12 +111,11 @@ const Enseignent = () => {
             className="flex"
             style={{
               transition: "transform 700ms ease-in-out",
-              transform: `translateX(-${index * cardWidth}px)`, //translation en pixels au lieu de pourcentage
-              width: `${totalCards * cardWidth}px`, //largeur totale en pixels
+              transform: `translateX(-${index * cardWidth}px)`, 
+              width: `${totalCards * cardWidth}px`,
             }}
           >
             {cards.map((card, i) => (
-              // Carte avec largeur fixe et padding
               <div 
                 key={i} 
                 style={{ width: `${cardWidth}px` }}
